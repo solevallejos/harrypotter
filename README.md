@@ -1,46 +1,127 @@
-# Getting Started with Create React App
+# Harry Potter 🪄 ✨
+This is a page that displays all the characters from the magical world of Harry Potter. By default, all characters are displayed.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this project, the user can:
 
-## Available Scripts
+- Filter the characters based on whether they are staff or students.
+- Access the character's information by clicking on their card.
+- Save their favorite characters to view them later.
 
-In the project directory, you can run:
+## Project installation
+To install this project please follow this instructions:
 
-### `npm start`
+1. Clone the repository:
+```bash
+git clone https://github.com/solevallejos/harrypotter.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Install all the necessary dependencies:
+```bash
+npm install
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3. To run this project, write the following command:
+```bash
+npm run start
+```
 
-### `npm test`
+## Libraries used
+* [React Router Dom](https://www.npmjs.com/package/react-router-dom)
+* [Styled Components](https://styled-components.com/)
+* [Typescript](https://www.typescriptlang.org/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## API Reference
+Base URL https://hp-api.onrender.com/
 
-### `npm run build`
+#### Get all characters
+```http
+  GET /characters
+```
+#### Get all students
+```http
+  GET /characters/students
+```
+#### Get all staff
+```http
+  GET /characters/staff
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Get information from a specific house
+```http
+  GET /characters/house/${house}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `house`   | `string` | **Required**. House name |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+#### Get information from a specific character
+```http
+  GET /character/${id}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Character information |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Assets
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Color palette
+- ![#EEE5DA](https://placehold.co/15x15/EEE5DA/EEE5DA.png) `#EEE5DA`
+- ![#FBF8F5](https://placehold.co/15x15/FBF8F5/FBF8F5.png) `#FBF8F5`
+- ![#8A7EB4](https://placehold.co/15x15/8A7EB4/8A7EB4.png) `#8A7EB4`
+- ![#75A57F](https://placehold.co/15x15/75A57F/75A57F.png) `#75A57F`
+- ![#F97071](https://placehold.co/15x15/F97071/F97071.png) `#F97071`
+- ![#FADA74](https://placehold.co/15x15/FADA74/FADA74.png) `#FADA74`
+- ![#4D3E38](https://placehold.co/15x15/4D3E38/4D3E38.png) `#4D3E38`
 
-## Learn More
+## Project structure
+```
+src/
+├── assets - color palette and images
+├── axios - basic axios configuration
+├── hooks - custom hooks
+└── components/ - Custom components
+|   ├── Button
+|   ├── Card
+|   ├── Container
+|   ├── Favorites
+|   ├── Header
+|   ├── Loader
+|   ├── NavigationHeader
+|   ├── Options
+|   └── Typography
+└── routes - project routes
+    ├── Characters
+    ├── FavoritesList
+    ├── Home
+    └── NotFound
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Future Improvements
+I used tools appropriate for the project's size; that's why I didn't use external libraries for local state management. For the same reason, I used React Router for navigation and not another tool like Next.js, for example.
+
+   ### Technical Tasks
+  - Implementation of i18n for proper content translation.
+  - Linter and prettier to further improve code quality.
+  - Decouple component logic to make them completely agnostic to business logic.
+  - Organize TypeScript variables.
+  - Tests
+
+  ### UI
+  CSS resets to ensure proper functionality in different browsers and operating systems.
+
+  ### UX
+  - Add a search bar to search for specific characters.
+  - Accessibility improvements.
+  
+## Unresolved Detected Issues
+Both problems do not prevent the compilation of the project, but I believe it's important to mention them. They were not resolved due to time constraints.
+
+- Local storage is not functioning correctly on some occasions.
+- In the console, there are two errors related to styled components.
+    
