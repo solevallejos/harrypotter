@@ -12,7 +12,7 @@ const FavoritesList: React.FC = () => {
     <>
       <NavigationHeader />
       <LargeTitle>Favorite characters</LargeTitle>
-      {storedSelectedItems.length >= 0 ? (
+      {storedSelectedItems.length === 0 ? (
         <SubTitle> No favorite characters selected</SubTitle>
       ) : (
         <CharactersCard data={storedSelectedItems} />
