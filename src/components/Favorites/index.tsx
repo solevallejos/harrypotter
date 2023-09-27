@@ -35,9 +35,7 @@ const Favorites: React.FC<FavoritesProps> = ({ data }) => {
     setSelectedItems(updatedSelection);
   };
 
-  return selectedItems.length === 0 ? (
-    <SubTitle>There are no favorite characters saved</SubTitle>
-  ) : (
+  return (
     <Favorite
       src={isSelected ? IMAGES.FAVORITE : IMAGES.NOT_FAVORITE}
       onClick={() => handleItemClick(data)}
