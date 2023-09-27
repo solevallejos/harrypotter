@@ -1,6 +1,6 @@
 import React from "react";
 import CharactersCard from "../../components/Cards/CharactersCard";
-import { LargeTitle } from "../../components/Typography/styled";
+import { LargeTitle, SubTitle } from "../../components/Typography/styled";
 import NavigationHeader from "../../components/NavigationHeader";
 
 const FavoritesList: React.FC = () => {
@@ -12,7 +12,11 @@ const FavoritesList: React.FC = () => {
     <>
       <NavigationHeader />
       <LargeTitle>Favorite characters</LargeTitle>
-      <CharactersCard data={storedSelectedItems} />
+      {storedSelectedItems.length >= 0 ? (
+        <SubTitle> No favorite characters selected</SubTitle>
+      ) : (
+        <CharactersCard data={storedSelectedItems} />
+      )}
     </>
   );
 };
