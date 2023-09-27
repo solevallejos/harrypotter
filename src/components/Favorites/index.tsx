@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Favorite } from "./styled";
-import { IMAGES } from "../../assets/images/images";
-import { SubTitle } from "../Typography/styled";
+import React, { useState } from 'react';
+import { Favorite } from './styled';
+import { IMAGES } from '../../assets/images/images';
 
 interface Character {
   name: string;
@@ -14,25 +13,27 @@ interface FavoritesProps {
 }
 
 const Favorites: React.FC<FavoritesProps> = ({ data }) => {
-  const [selectedItems, setSelectedItems] = useState<Character[]>(
-    JSON.parse(localStorage.getItem('selectedItems') || '[]')
+  const storageItems: Character[] = JSON.parse(
+    localStorage.getItem('selectedItems') || '[]'
   );
-  const isSelected = selectedItems.some(item => item.id === data.id);
-
-  useEffect(() => {
-    localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
-  }, [selectedItems]);
-
+  const [isSelected, setIsSelected] = useState(
+    storageItems.some((item) => item?.id === data.id)
+  );
   const handleItemClick = (item: Character) => {
-    let updatedSelection;
-    if (selectedItems.some(selectedItem => selectedItem.id === item.id)) {
-      updatedSelection = selectedItems.filter(
-        selectedItem => selectedItem.id !== item.id
+    let updatedSelection: Character[] = JSON.parse(
+      localStorage.getItem('selectedItems') || '[]'
+    );
+    if (updatedSelection.some((selectedItem) => selectedItem.id === item.id)) {
+      updatedSelection = updatedSelection.filter(
+        (selectedItem) => selectedItem.id !== item.id
       );
+      setIsSelected(false);
     } else {
-      updatedSelection = [...selectedItems, item];
+      updatedSelection = [...updatedSelection, item];
+      setIsSelected(true);
     }
-    setSelectedItems(updatedSelection);
+    localStorage.setItem('selectedItems', JSON.stringify(updatedSelection));
+    console.log(updatedSelection);
   };
 
   return (

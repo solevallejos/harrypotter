@@ -122,6 +122,6 @@ I used tools appropriate for the project's size; that's why I didn't use externa
 ## Unresolved Detected Issues
 Both problems do not prevent the compilation of the project, but I believe it's important to mention them. They were not resolved due to time constraints.
 
-- Local storage is not functioning correctly on some occasions.
+- ~~Local storage is not functioning correctly on some occasions.~~ The issue was bigger than I thought so I decided to fix it.
 - In the console, there are two errors related to styled components.
     
